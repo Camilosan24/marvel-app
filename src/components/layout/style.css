@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: "Oswald", sans-serif;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	min-height: 100vh;
+}
+
+.container header.main-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(37, 37, 37);
+	min-height: 80px;
+}
+
+.container header.main-header .bg-title {
+	background-color: red;
+	padding: 5px;
+	height: 65px;
+	width: 140px;
+}
+
+.container header.main-header h1 {
+	display: flex;
+	font-size: 2rem;
+	justify-content: center;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: -3px;
+	font-weight: 700;
+	text-shadow: 0px 0px 10px rgb(0, 0, 0);
+	transform: scale(1.5, 2) translateX(-2.5px);
+}
+
+nav.navigation {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	width: 100%;
+	border-top: .5px solid rgba(255, 255, 255, 0.349);
+	flex-wrap: wrap;
+	box-shadow: 0px 10px 10px 0px grey;
+}
+
+nav address{
+	margin: 0 10px;
+}
+
+nav address a{
+	color: rgb(182, 182, 182);
+	text-transform: capitalize;
+	text-decoration: none;
+	font-weight: 300;
+	font-style: normal;
+	padding-bottom: 8px;
+	font-size: 1rem;
+}
+
+nav address a:hover{
+	color: rgb(255, 255, 255);
+	border-bottom: 2px solid red;
+}
+
+main{
+	display: flex;
+	flex-grow: 1;
+	position: relative;
+}
+
+main .background{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	flex-grow: 1;
+	background-image: url('https://developer.marvel.com/i/images/developers/account-bg.jpg');
+	background-position: center;
+	background-size: cover;
+	opacity: .3;
+	z-index: -1;
+}
+

@@ -1,0 +1,57 @@
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 25px;
+	padding: 10px;
+}
+
+header.welcoming {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+header.welcoming h1 {
+	font-size: 3rem;
+}
+header.welcoming h2 {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+section .main-description {
+	margin-top: 20px;
+	width: 90%;
+	text-align: justify;
+}
+
+section .main-description p {
+	font-weight: 500;
+}
+
+.main-description address {
+	display: flex;
+	justify-content: center;
+	background-color: red;
+	width: 125px;
+	padding: 5px 10px;
+	color: white;
+	border-radius: 2px;
+	transform: translateX(50px) translateY(50px);
+}
+
+.main-description address:hover {
+	transition: 0.2s;
+	transform: translateX(50px) translateY(48px);
+}
+
+.main-description address a {
+	color: white;
+	font-size: 1.2rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-style: normal;
+	font-weight: 700;
+}
