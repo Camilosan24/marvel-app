@@ -11,7 +11,11 @@ const Routes = () => {
 			<Switch>
 				<Layout>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/characters" component={Characters} />
+					<Route
+						exact
+						path="/characters"
+						render={() => <Characters section="characters" />}
+					/>
 				</Layout>
 			</Switch>
 		</BrowserRouter>

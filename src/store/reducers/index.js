@@ -1,4 +1,4 @@
-import { GET_ALL_CHARACTERS } from "../cases";
+import { GET_CHARACTERS } from "../cases";
 
 const initialState = {
 	characters: [],
@@ -9,10 +9,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case GET_ALL_CHARACTERS:
+		case GET_CHARACTERS:
 			return {
 				...state,
-				characters: [...state.characters, ...action.payload],
+				characters: [...action.payload],
 			};
 		default:
 			return state;

@@ -1,0 +1,24 @@
+.loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 30vh;
+}
+
+.loading .fas {
+	font-size: 50px;
+	animation-name: loadingAnimation;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 1.5s;
+}
+
+@keyframes loadingAnimation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
