@@ -1,9 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import React from "react";
 import Home from "../pages/home";
-import Characters from "../pages/characters";
 import Layout from "../components/layout";
+import CardsContainer from "../pages/cardsContainer";
 
 const Routes = () => {
 	return (
@@ -11,11 +9,10 @@ const Routes = () => {
 			<Switch>
 				<Layout>
 					<Route exact path="/" component={Home} />
-					<Route
-						exact
-						path="/characters"
-						render={() => <Characters section="characters" />}
-					/>
+					<Route exact path="/characters" component={CardsContainer} />
+					<Route exact path="/comics" component={CardsContainer} />
+					<Route exact path="/series" component={CardsContainer} />
+					<Route exact path="/events" component={CardsContainer} />
 				</Layout>
 			</Switch>
 		</BrowserRouter>

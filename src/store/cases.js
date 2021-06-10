@@ -1,1 +1,1 @@
-export const GET_CHARACTERS = "GET_ALL_CHARACTERS";
+export const GET_CARD_ITEMS = "GET_CARD_ITEMS";

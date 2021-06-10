@@ -13,8 +13,8 @@ const Layput = ({ children }) => {
 					<LinkComponent route="/" name="home" />
 					<LinkComponent route="/characters" name="characters" />
 					<LinkComponent route="/comics" name="comics" />
-					<LinkComponent route="/movies" name="movies" />
-					<LinkComponent route="/tvshows" name="tv shows" />
+					<LinkComponent route="/series" name="series" />
+					<LinkComponent route="/events" name="events" />
 				</nav>
 			</header>
 			<main>

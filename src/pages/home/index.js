@@ -4,19 +4,41 @@ import "./style.css";
 const Home = () => {
 	return (
 		<section aria-label="welcome">
-			<header className="welcoming">
-				<h1>welcome! </h1>
-				<h2>enjoy this marvel's api</h2>
-			</header>
-			<div className="main-description">
-				<p>
-					Hello, welcome to this web application, you're able to see all the
-					content we have for you like comics, characters you love, movies, tv
-					shows and games, go ahead, and let's get fun.
-				</p>
-				<address>
-					<Link to="/characters">get started</Link>
-				</address>
+			<div className="welcome-left">
+				<header className="welcoming">
+					<h1>welcome! </h1>
+					<h2>enjoy this marvel's api</h2>
+				</header>
+				<div className="main-description">
+					<p>
+						The Marvel Cinematic Universe is a media franchise and shared
+						universe, centered on a series of superhero films produced
+						independently by Marvel Studios and based on the characters that
+						appear in Marvel Comics publications.
+					</p>
+					<br />
+					<p>
+						In this web application, you're able to see all the content we have
+						for you like comics, characters you love, movies, tv shows and
+						games, go ahead, and let's get fun.
+					</p>
+
+					<ul>
+						<li>Characters</li>
+						<li>Comics</li>
+						<li>Series</li>
+						<li>Events</li>
+					</ul>
+					<address>
+						<Link to="/characters">get started</Link>
+					</address>
+				</div>
+			</div>
+			<div className="welcome-right">
+				<img
+					src="https://allegra.flowersetcfresno.com/pic/734091_full-fondos-de-pantalla-4k-marvel-vertical-spider-man-vertical-iphone-wallpaper-spiderman-avengers.jpg"
+					alt="background"
+				/>
 			</div>
 		</section>
 	);

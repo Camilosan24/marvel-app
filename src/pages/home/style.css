@@ -4,31 +4,46 @@ section {
 	align-items: center;
 	margin-top: 25px;
 	padding: 10px;
+	height: 80vh;
 }
 
-header.welcoming {
+section .welcome-left {
+	width: 95%;
+}
+
+.welcome-left header.welcoming {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-transform: uppercase;
 }
 
-header.welcoming h1 {
+.welcome-left header.welcoming h1 {
 	font-size: 3rem;
 }
-header.welcoming h2 {
+.welcome-left header.welcoming h2 {
 	font-size: 1rem;
 	font-weight: 500;
 }
 
-section .main-description {
+section .welcome-left .main-description {
 	margin-top: 20px;
 	width: 90%;
+	min-height: 400px;
 	text-align: justify;
+}
+
+section .welcome-right {
+	display: none;
 }
 
 section .main-description p {
 	font-weight: 500;
+}
+
+.main-description ul{
+	margin-top: 20px;
+	transform: translateX(15px);
 }
 
 .main-description address {
@@ -40,6 +55,7 @@ section .main-description p {
 	color: white;
 	border-radius: 2px;
 	transform: translateX(50px) translateY(50px);
+	z-index: 100;
 }
 
 .main-description address:hover {
@@ -55,3 +71,19 @@ section .main-description p {
 	font-style: normal;
 	font-weight: 700;
 }
+
+@media screen and (min-width: 700px) {
+	section .welcome-left {
+		width: 40%;
+	}
+	section .welcome-right {
+		display: flex;
+		width: 45%;
+	}
+	section .welcome-right img{
+		display: flex;
+		width: 100%;
+		opacity: 1;
+	}
+}
+

@@ -8,6 +8,10 @@
 	font-family: "Oswald", sans-serif;
 }
 
+body::-webkit-scrollbar{
+	width: 0;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -77,6 +81,8 @@ main {
 	display: flex;
 	position: relative;
 	overflow: hidden;
+	justify-content: center;
+	/* align-items: center;? */
 }
 
 main .background {
@@ -93,6 +99,17 @@ main .background {
 	max-width: 100vw;
 }
 
+section {
+	display: flex;
+	position: relative;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100vw;
+	height: auto;
+}
+
 @media screen and (min-width: 650px) {
 	nav address a {
 		font-size: 1.3rem;
@@ -100,5 +117,11 @@ main .background {
 	main .background {
 		background-size: contain;
 		background-repeat: no-repeat;
+	}
+}
+
+@media screen and (min-width: 1450px) {
+	section {
+		width: 80vw;
 	}
 }

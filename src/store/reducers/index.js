@@ -1,18 +1,15 @@
-import { GET_CHARACTERS } from "../cases";
+import { GET_CARD_ITEMS } from "../cases";
 
 const initialState = {
-	characters: [],
-	comics: [],
-	movies: [],
-	tvshows: [],
+	cardItems: [],
 };
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case GET_CHARACTERS:
+		case GET_CARD_ITEMS:
 			return {
 				...state,
-				characters: [...action.payload],
+				cardItems: [...action.payload],
 			};
 		default:
 			return state;
