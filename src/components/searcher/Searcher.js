@@ -6,19 +6,28 @@ const Searcher = ({ setItemsInformation }) => {
 
    const [showInput, setShowInput] = useState(false)
    const [inputValue, setInputValue] = useState('')
+   const [errorSearching, setErrorSearching] = useState(false)
    const onClickButton = () => {
       if (inputValue === '') return setShowInput(!showInput)
    }
 
+   //fetch a single character when inputValue change
    useEffect(() => {
       const searchCharacterByStartName = async () => {
-         const res = await getSingleCharacterByStartName(inputValue)
-         setItemsInformation([res])
+         try {
+            const res = await getSingleCharacterByStartName(inputValue)
+            if (res) {
+               setErrorSearching(false)
+               return setItemsInformation([res])
+            }
+            throw new Error('No se encontro')
+         } catch (e) {
+            setErrorSearching(true)
+         }
       }
       if (inputValue !== '') {
          searchCharacterByStartName()
       }
-
    }, [inputValue])
 
    return (
@@ -29,7 +38,7 @@ const Searcher = ({ setItemsInformation }) => {
                <input type="text" placeholder="Enter a charater's name" onChange={(e) => setInputValue(e.target.value)} value={inputValue} />
             </div>
          </div>
-         <button onClick={onClickButton}><i className="fas fa-search"></i></button>
+         <button onClick={onClickButton} style={{ background: errorSearching && 'red' }}><i className="fas fa-search"></i></button>
       </fieldset>
    )
 }

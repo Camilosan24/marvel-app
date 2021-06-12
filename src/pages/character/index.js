@@ -8,11 +8,12 @@ const Character = () => {
 	const params = useParams();
 	const [characterInfo, setCharacterInfo] = useState(null)
 	const [loading, setLoading] = useState(true)
+
+	//fetch all characters on load component
 	useEffect(() => {
 		setLoading(true)
 		const fetchCharacterById = async () => {
 			const res = await getSingleCharacterById(params.id)
-			console.log(res)
 			setCharacterInfo(res)
 			setLoading(false)
 		}

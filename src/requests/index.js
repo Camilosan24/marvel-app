@@ -36,9 +36,6 @@ export function getSingleCharacterByStartName(name) {
 	});
 }
 
-// resolve({ uno: res.json(), second: `${URI}/characters?nameStartsWith=${nameToSend}?${CREDENTIALS}` })
-
-
 export function getSingleComicById(id) {
 	return new Promise((resolve, reject) => {
 		fetch(`${URI}/comics/${id}?${CREDENTIALS}`)
