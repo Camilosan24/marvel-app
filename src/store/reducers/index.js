@@ -1,7 +1,8 @@
-import { GET_CARD_ITEMS } from "../cases";
+import { GET_CARD_ITEMS, GET_SINGLE_CHARACTER } from "../cases";
 
 const initialState = {
 	cardItems: [],
+	character: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const reducer = (state = initialState, action) => {
 				...state,
 				cardItems: [...action.payload],
 			};
+			case GET_SINGLE_CHARACTER:
+				return {
+					...state,
+					character: action.payload,
+				};
 		default:
 			return state;
 	}

@@ -1,15 +1,15 @@
-import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { getAllItems } from '../../requests'
 import { useEffect, useState } from "react";
-import { setCardsSection } from "../../store/actions";
 import Pagination from "../../components/pagination";
 import Card from "../../components/card/Card";
 import Loading from "../../components/Loading";
+import Searcher from "../../components/searcher/Searcher";
+import './style.css'
 
 const CardsContainer = () => {
-	const dispatch = useDispatch();
-	const location = useLocation();
-	const cardItems = useSelector((state) => state.cardItems);
+	const location = useLocation()
+	const [itemsInformation, setItemsInformation] = useState([])
 	const [page, setPage] = useState(0);
 	const [loading, setLoading] = useState(false);
 
@@ -20,17 +20,23 @@ const CardsContainer = () => {
 	};
 
 	useEffect(() => {
-		setLoading(true);
-		const dispatchSetCardItems = async () => {
-			await dispatch(setCardsSection(page * 20, location.pathname));
-			setLoading(false);
-		};
-		dispatchSetCardItems();
-	}, [page, dispatch]);
+		setLoading(true)
+		const fetchAllItems = async () => {
+			const result = await getAllItems(page * 10, location.pathname)
+			setItemsInformation(result)
+			setLoading(false)
+		}
+		fetchAllItems()
+		return () => {
+		}
+	}, [page])
+
+
 	return (
 		<section>
+			<Searcher setItemsInformation={setItemsInformation} />
 			{!loading ? (
-				cardItems.map((cardItem, i) => {
+				itemsInformation.map((cardItem, i) => {
 					return <Card {...cardItem} key={i}></Card>;
 				})
 			) : (

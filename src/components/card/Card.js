@@ -1,15 +1,22 @@
 import React from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import "./style.css";
 
-const Card = ({ name, thumbnail, title }) => {
+const Card = ({ name, thumbnail, title, id }) => {
+	const location = useLocation();
+	const history = useHistory();
+	const handleOnClick = () => {
+		history.push(`${location.pathname}/${id}`, { id });
+	};
 	return (
-		<div className="card">
+		<div className="card" >
 			<figure>
 				<img
 					src={thumbnail.path + "/portrait_fantastic." + thumbnail.extension}
 					alt={name || title}
 					aria-labelledby={name || title}
 					width="200px"
+					onClick={handleOnClick}
 				/>
 			</figure>
 			<header>

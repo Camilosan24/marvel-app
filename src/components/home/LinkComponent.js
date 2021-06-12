@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const LinkComponent = ({ route, name }) => {
 	return (
 		<address className="adress-container">
-			<Link to={route} className="">
+			<Link to={route}>
 				{name}
 			</Link>
 		</address>

@@ -1,0 +1,70 @@
+fieldset.fielset-for-search {
+	position: fixed;
+	padding: 10px;
+	border: none;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	width: 310px;
+   top: 135px;
+   right: 10px;
+   z-index: 50;
+}
+
+fieldset.fielset-for-search .input-box {
+	width: 95%;
+	overflow: hidden;
+}
+
+fieldset.fielset-for-search .complete-input-box {
+	transition: 0.3s;
+	display: flex;
+	flex-direction: row;
+	border: none;
+	height: 45px;
+	width: 100%;
+}
+
+fieldset.fielset-for-search .rounded {
+	transition: 0;
+	padding: 15px 20px;
+	border-radius: 50% 0 0 50%;
+	border: none;
+	background-color: rgb(228, 227, 227);
+}
+
+fieldset.fielset-for-search input {
+	width: 100%;
+	padding: 15px 20px;
+	border: none;
+	background-color: rgb(228, 227, 227);
+   transform: translateX(-23px);
+}
+fieldset.fielset-for-search input:focus {
+	border: none;
+	outline: none;
+}
+
+fieldset.fielset-for-search button {
+	position: absolute;
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+	border: none;
+	right: 5px;
+   font-weight: 900;
+   transition: .3s;
+}
+
+
+fieldset.fielset-for-search button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+fieldset.fielset-for-search .hide {
+	transform: translateX(100%);
+}
+

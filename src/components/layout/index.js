@@ -2,7 +2,7 @@ import React from "react";
 import LinkComponent from "../home/LinkComponent";
 import "./style.css";
 
-const Layput = ({ children }) => {
+const Layout = ({ children }) => {
 	return (
 		<div className="container">
 			<header className="main-header">
@@ -21,9 +21,10 @@ const Layput = ({ children }) => {
 				{children}
 				<div className="background"></div>
 			</main>
-			<footer></footer>
+			<footer>
+			</footer>
 		</div>
 	);
 };
 
-export default Layput;
+export default Layout;

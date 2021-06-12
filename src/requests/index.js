@@ -12,3 +12,63 @@ export function getAllItems(offset, section) {
 			});
 	});
 }
+
+export function getSingleCharacterById(id) {
+	return new Promise((resolve, reject) => {
+		fetch(`${URI}/characters/${id}?${CREDENTIALS}`)
+			.then((res) => res.json())
+			.then((res) => resolve(...res.data.results))
+			.catch((err) => {
+				reject(err);
+			});
+	});
+}
+
+export function getSingleCharacterByStartName(name) {
+	const nameToSend = name.replace(' ', "%20")
+	return new Promise((resolve, reject) => {
+		fetch(`${URI}/characters?nameStartsWith=${nameToSend}&${CREDENTIALS}`)
+			.then((res) => res.json())
+			.then((res) => resolve(...res.data.results))
+			.catch((err) => {
+				reject(err);
+			});
+	});
+}
+
+// resolve({ uno: res.json(), second: `${URI}/characters?nameStartsWith=${nameToSend}?${CREDENTIALS}` })
+
+
+export function getSingleComicById(id) {
+	return new Promise((resolve, reject) => {
+		fetch(`${URI}/comics/${id}?${CREDENTIALS}`)
+			.then((res) => res.json())
+			.then((res) => resolve(...res.data.results))
+			.catch((err) => {
+				reject(err);
+			});
+	});
+}
+
+export function getSingleSerieById(id) {
+	return new Promise((resolve, reject) => {
+		fetch(`${URI}/series/${id}?${CREDENTIALS}`)
+			.then((res) => res.json())
+			.then((res) => resolve(...res.data.results))
+			.catch((err) => {
+				reject(err);
+			});
+	});
+}
+
+
+export function getSingleEventById(id) {
+	return new Promise((resolve, reject) => {
+		fetch(`${URI}/events/${id}?${CREDENTIALS}`)
+			.then((res) => res.json())
+			.then((res) => resolve(...res.data.results))
+			.catch((err) => {
+				reject(err);
+			});
+	});
+}
