@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+
 import './style.css'
 import { getSingleCharacterByStartName } from '../../requests'
 
@@ -9,6 +10,10 @@ const Searcher = ({ setItemsInformation }) => {
    const [errorSearching, setErrorSearching] = useState(false)
    const onClickButton = () => {
       if (inputValue === '') return setShowInput(!showInput)
+   }
+
+   const handleOnChange = (e) => {
+      setInputValue(e.currentTarget.value)
    }
 
    //fetch a single character when inputValue change
@@ -23,11 +28,10 @@ const Searcher = ({ setItemsInformation }) => {
             throw new Error('No se encontro')
          } catch (e) {
             setErrorSearching(true)
+            setItemsInformation([])
          }
       }
-      if (inputValue !== '') {
-         searchCharacterByStartName()
-      }
+      if (inputValue.length > 0) searchCharacterByStartName()
    }, [inputValue])
 
    return (
@@ -35,7 +39,7 @@ const Searcher = ({ setItemsInformation }) => {
          <div className="input-box">
             <div className={`complete-input-box ${!showInput && "hide"}`}>
                <div className="rounded"></div>
-               <input type="text" placeholder="Enter a charater's name" onChange={(e) => setInputValue(e.target.value)} value={inputValue} />
+               <input type="text" placeholder="Enter a charater's name" onChange={handleOnChange} value={inputValue} />
             </div>
          </div>
          <button onClick={onClickButton} style={{ background: errorSearching && 'red' }}><i className="fas fa-search"></i></button>

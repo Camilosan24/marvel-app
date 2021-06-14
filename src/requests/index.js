@@ -1,6 +1,5 @@
 const URI = "http://gateway.marvel.com/v1/public/";
-const CREDENTIALS =
-	"ts=1&apikey=5230904141b43d248f5e8468e0ff6759&hash=81ab3e48092d910b0c726ab8f0e902be";
+const CREDENTIALS = "ts=1&apikey=5230904141b43d248f5e8468e0ff6759&hash=81ab3e48092d910b0c726ab8f0e902be";
 
 export function getAllItems(offset, section) {
 	return new Promise((resolve, reject) => {
@@ -8,7 +7,7 @@ export function getAllItems(offset, section) {
 			.then((res) => res.json())
 			.then((res) => resolve(res.data.results))
 			.catch((err) => {
-				reject(err);
+				reject('no se pudo obtener');
 			});
 	});
 }
@@ -19,19 +18,20 @@ export function getSingleCharacterById(id) {
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch((err) => {
-				reject(err);
+				reject('no se pudo obtener');
 			});
 	});
 }
 
 export function getSingleCharacterByStartName(name) {
-	const nameToSend = name.replace(' ', "%20")
 	return new Promise((resolve, reject) => {
+		if (typeof name !== 'string') return reject('no se pudo obtener')
+		const nameToSend = name.replace(' ', "%20")
 		fetch(`${URI}/characters?nameStartsWith=${nameToSend}&${CREDENTIALS}`)
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch((err) => {
-				reject(err);
+				reject('no se pudo obtener');
 			});
 	});
 }
@@ -42,7 +42,7 @@ export function getSingleComicById(id) {
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch((err) => {
-				reject(err);
+				reject('no se pudo obtener');
 			});
 	});
 }
@@ -53,7 +53,7 @@ export function getSingleSerieById(id) {
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch((err) => {
-				reject(err);
+				reject('no se pudo obtener');
 			});
 	});
 }
@@ -65,7 +65,7 @@ export function getSingleEventById(id) {
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch((err) => {
-				reject(err);
+				reject('no se pudo obtener');
 			});
 	});
 }
