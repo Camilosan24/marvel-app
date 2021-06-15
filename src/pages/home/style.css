@@ -7,6 +7,12 @@ section {
 	height: 80vh;
 }
 
+section .welcoming-box{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
 section .welcome-left {
 	width: 95%;
 }

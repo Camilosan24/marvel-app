@@ -11,8 +11,8 @@ jest.mock('react-router-dom', () => ({
    })
 }))
 
-describe('', () => {
-   test('should ', () => {
+describe('card tests', () => {
+   test('should print the params sent by props (image source and character name)', () => {
       const character = {
          name: '3-D Man',
          thumbnail: {
@@ -25,5 +25,4 @@ describe('', () => {
       expect(component.container).toHaveTextContent(character.name)
       expect(image.src).toEqual('http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/portrait_fantastic.jpg')
    })
-
 })

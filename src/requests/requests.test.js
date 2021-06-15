@@ -82,3 +82,15 @@ describe('tests for getSingleEventById', () => {
       await expect(result).rejects.toBe('no se pudo obtener')
    });
 })
+
+describe('tests for getSingleSerieById', () => {
+   test('should ', async () => {
+      const result = await getSingleSerieById(29697)
+      expect(result).toHaveProperty('id', 29697)
+   })
+
+   test('shouldnt accept booleans', async() => {
+      const result = getSingleSerieById(true)
+      await expect(result).rejects.toBe('no se pudo obtener')
+   })
+})

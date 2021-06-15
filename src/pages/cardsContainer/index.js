@@ -22,7 +22,7 @@ const CardsContainer = () => {
 	useEffect(() => {
 		setLoading(true)
 		const fetchAllItems = async () => {
-			const result = await getAllItems(page * 10, location.pathname)
+			const result = await getAllItems(page * 10, location?.pathname)
 			setItemsInformation(result)
 			setLoading(false)
 		}
@@ -35,13 +35,16 @@ const CardsContainer = () => {
 	return (
 		<section>
 			<Searcher setItemsInformation={setItemsInformation} />
-			{!loading ? (
-				itemsInformation.map((cardItem, i) => {
-					return <Card {...cardItem} key={i}></Card>;
-				})
-			) : (
-				<Loading />
-			)}
+			<div className="cards-container-box" placeholder="cards-container-box">
+				{!loading ? (
+					itemsInformation.map((cardItem, i) => {
+						return <Card {...cardItem} key={i}></Card>;
+					})
+				) : (
+					<Loading />
+				)}
+			</div>
+
 			<Pagination changePage={changePage} page={page} />
 		</section>
 	);

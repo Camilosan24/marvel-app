@@ -23,6 +23,7 @@ const Searcher = ({ setItemsInformation }) => {
             const res = await getSingleCharacterByStartName(inputValue)
             if (res) {
                setErrorSearching(false)
+               console.log(res)
                return setItemsInformation([res])
             }
             throw new Error('No se encontro')
@@ -37,12 +38,12 @@ const Searcher = ({ setItemsInformation }) => {
    return (
       <fieldset className="fielset-for-search">
          <div className="input-box">
-            <div className={`complete-input-box ${!showInput && "hide"}`}>
+            <div className={`complete-input-box ${!showInput && "hide"}`} placeholder="hider-box">
                <div className="rounded"></div>
                <input type="text" placeholder="Enter a charater's name" onChange={handleOnChange} value={inputValue} />
             </div>
          </div>
-         <button onClick={onClickButton} style={{ background: errorSearching && 'red' }}><i className="fas fa-search"></i></button>
+         <button onClick={onClickButton} style={{ background: errorSearching && 'red' }} aria-label="toggle input searcher"><i className="fas fa-search"></i></button>
       </fieldset>
    )
 }
