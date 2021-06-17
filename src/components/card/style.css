@@ -4,6 +4,7 @@
 	align-items: center;
 	margin-top: 30px;
 	width: 100%;
+	min-width: 300px;
 }
 .card figure {
 	margin-bottom: 10px;

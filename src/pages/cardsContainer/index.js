@@ -22,9 +22,17 @@ const CardsContainer = () => {
 	useEffect(() => {
 		setLoading(true)
 		const fetchAllItems = async () => {
-			const result = await getAllItems(page * 10, location?.pathname)
-			setItemsInformation(result)
-			setLoading(false)
+			try {
+				const result = await getAllItems(page * 10, location.pathname)
+				if (result) {
+					setLoading(false)
+					setItemsInformation(result)
+					return;
+				}
+				throw new Error('no se pudo obtener datos')
+			} catch (error) {
+				setItemsInformation([])
+			}
 		}
 		fetchAllItems()
 		return () => {

@@ -32,7 +32,9 @@ describe("testing for searcher component", () => {
       const { input, container } = setup()
       const buttonSearcher = container.getByLabelText('toggle input searcher')
       const hiderBox = container.getByPlaceholderText('hider-box')
-      fireEvent.click(buttonSearcher)
+      act(() => {
+         fireEvent.click(buttonSearcher)
+      })
       expect(hiderBox).not.toHaveClass('hide')
    })
 
@@ -45,33 +47,22 @@ describe("testing for searcher component", () => {
 
    })
 
-   test("should mock with [] as parameter because response wasnt good", async () => {
+   test("should mock with [ironMan] as parameter because response was good", async () => {
       let mock = jest.fn()
       let component = render(<Searcher setItemsInformation={mock} />)
-
-      getSingleCharacterByStartName.mockResolvedValueOnce(null)
-
-      const input = component.getByPlaceholderText("Enter a charater's name")
-      fireEvent.change(input, { target: { value: "iron man" } })
-
-      await waitFor(() => expect(mock).toBeCalledWith([]))
-
-   })
-
-   test("should mock with [] as parameter because response wasnt good", async () => {
-      let mock = jest.fn()
-      let component = render(<Searcher setItemsInformation={mock} />)
-
       const ironMan = {
          id: 1009368,
          name: 'iron man'
       }
       getSingleCharacterByStartName.mockResolvedValueOnce(ironMan)
-
       const input = component.getByPlaceholderText("Enter a charater's name")
-      fireEvent.change(input, { target: { value: "iron man" } })
 
+      await act(async () => {
+         fireEvent.change(input, { target: { value: "iron man" } })
+         component = render(<Searcher setItemsInformation={mock} />)
+      })
       await waitFor(() => expect(mock).toBeCalledWith([ironMan]))
+
 
    })
 })

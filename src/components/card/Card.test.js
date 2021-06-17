@@ -1,19 +1,22 @@
 import Card from './Card'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 
+
+const mockHistoryPush = jest.fn();
 jest.mock('react-router-dom', () => ({
-   useLocation: jest.fn().mockReturnValue({
+   useLocation: () => ({
       pathname: '/characters',
    }),
-   useHistory: jest.fn().mockReturnValue({
-      push: jest.fn()
+   useHistory: () => ({
+      push: mockHistoryPush
    })
 }))
 
 describe('card tests', () => {
    test('should print the params sent by props (image source and character name)', () => {
       const character = {
+         id: 1011334,
          name: '3-D Man',
          thumbnail: {
             path: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784',
@@ -24,5 +27,20 @@ describe('card tests', () => {
       const image = component.getByRole('img')
       expect(component.container).toHaveTextContent(character.name)
       expect(image.src).toEqual('http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/portrait_fantastic.jpg')
+   })
+
+   test('should print the params sent by props (image source and character name)', () => {
+      const character = {
+         id: 1011334,
+         name: '3-D Man',
+         thumbnail: {
+            path: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784',
+            extension: 'jpg'
+         }
+      }
+      const component = render(<Card {...character} />)
+      const image = component.getByRole('img')
+      fireEvent.click(image)
+      expect(mockHistoryPush).toBeCalledWith('/characters/1011334')
    })
 })

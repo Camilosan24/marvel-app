@@ -6,7 +6,7 @@ const Card = ({ name, thumbnail, title, id }) => {
 	const location = useLocation();
 	const history = useHistory();
 	const handleOnClick = () => {
-		history.push(`${location.pathname}/${id}`, { id });
+		history.push(`${location.pathname}/${id}`);
 	};
 	return (
 		<div className="card" >

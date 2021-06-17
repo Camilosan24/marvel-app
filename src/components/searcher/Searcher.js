@@ -18,18 +18,18 @@ const Searcher = ({ setItemsInformation }) => {
 
    //fetch a single character when inputValue change
    useEffect(() => {
+
       const searchCharacterByStartName = async () => {
          try {
             const res = await getSingleCharacterByStartName(inputValue)
             if (res) {
                setErrorSearching(false)
-               console.log(res)
                return setItemsInformation([res])
             }
             throw new Error('No se encontro')
          } catch (e) {
-            setErrorSearching(true)
             setItemsInformation([])
+            setErrorSearching(true)
          }
       }
       if (inputValue.length > 0) searchCharacterByStartName()

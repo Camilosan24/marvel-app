@@ -9,7 +9,7 @@ const Character = () => {
 	const [characterInfo, setCharacterInfo] = useState(null)
 	const [loading, setLoading] = useState(true)
 
-	//fetch all characters on load component
+	//fetch character on load component
 	useEffect(() => {
 		setLoading(true)
 		const fetchCharacterById = async () => {
