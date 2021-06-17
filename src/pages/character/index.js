@@ -25,7 +25,7 @@ const Character = () => {
 				<figure>
 					<img
 						src={characterInfo.thumbnail?.path + "/portrait_uncanny." + characterInfo.thumbnail?.extension}
-						alt=""
+						alt={characterInfo.name || characterInfo.title}
 					/>
 				</figure>
 				<div className="info" aria-label="character information section">
