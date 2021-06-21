@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getSingleSerieById } from '../../requests'
 import Loading from '../../components/Loading'
-// import "./style.css";
+import SingleSection from "../../components/singleSection"
+import { setDate } from '../../assets'
 
 const Serie = () => {
 	const params = useParams();
@@ -12,7 +13,6 @@ const Serie = () => {
 		setLoading(true)
 		const fetchSerieById = async () => {
 			const res = await getSingleSerieById(params.id)
-         console.log(res)
 			setCharacterInfo(res)
 			setLoading(false)
 		}
@@ -24,19 +24,22 @@ const Serie = () => {
 				<figure>
 					<img
 						src={characterInfo.thumbnail?.path + "/portrait_uncanny." + characterInfo.thumbnail?.extension}
-						alt=""
+						alt={characterInfo.title}
 					/>
 				</figure>
-				<div className="info" aria-label="character information section">
+				<div className="info" aria-label="serie information section">
 					<ul>
 						<li>
-							<span className="info-tag">id:</span> {characterInfo.id}
+							<span className="info-tag">id:</span> <p>{characterInfo.id}</p>
 						</li>
 						<li>
-							<span className="info-tag">title:</span> {characterInfo.title}
+							<span className="info-tag">title:</span> <p>{characterInfo.title}</p>
 						</li>
 						<li>
-							<span className="info-tag">modified:</span> {characterInfo.modified}
+							<span className="info-tag">start-end:</span> <time dateTime={characterInfo.startYear, characterInfo.endYear}>{characterInfo.startYear}-{characterInfo.endYear}</time>
+						</li>
+						<li>
+							<span className="info-tag">modified:</span> <time dateTime={setDate(characterInfo.modified)}> {setDate(characterInfo.modified)}</time>
 						</li>
 						<li>
 							<span className="info-tag">description:</span> <p>{characterInfo.description ? characterInfo.description : 'No description available'}</p>
@@ -44,13 +47,10 @@ const Serie = () => {
 					</ul>
 				</div>
 			</header>
-			<main>
-				<h1>Characters</h1>
-				{/* <ul>
-					{characterInfo.series.items.length !== 0 ? characterInfo.characters.items.map((comic, index) => {
-						return <li key={index}>{comic.name}</li>
-					}) : "No characters"}
-				</ul> */}
+			<main className="section-single-item">
+				<SingleSection title="characters" items={characterInfo.characters.items} />
+				<SingleSection title="comics" items={characterInfo.comics.items} />
+				<SingleSection title="events" items={characterInfo.events.items} />
 			</main>
 		</section>
 	) : < Loading />

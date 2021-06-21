@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getSingleCharacterById } from '../../requests'
 import Loading from '../../components/Loading'
+import SingleSection from '../../components/singleSection'
+import { setDate } from '../../assets'
 import "./style.css";
 
 const Character = () => {
@@ -25,19 +27,19 @@ const Character = () => {
 				<figure>
 					<img
 						src={characterInfo.thumbnail?.path + "/portrait_uncanny." + characterInfo.thumbnail?.extension}
-						alt={characterInfo.name || characterInfo.title}
+						alt={characterInfo.name}
 					/>
 				</figure>
 				<div className="info" aria-label="character information section">
 					<ul>
 						<li>
-							<span className="info-tag">id:</span> {characterInfo.id}
+							<span className="info-tag">id:</span><p> {characterInfo.id}</p>
 						</li>
 						<li>
-							<span className="info-tag">name:</span> {characterInfo.name}
+							<span className="info-tag">name:</span> <p>{characterInfo.name}</p>
 						</li>
 						<li>
-							<span className="info-tag">modified:</span> {characterInfo.modified}
+							<span className="info-tag">modified:</span> <time dateTime={setDate(characterInfo.modified)}> {setDate(characterInfo.modified)}</time>
 						</li>
 						<li>
 							<span className="info-tag">description:</span> <p>{characterInfo.description ? characterInfo.description : 'No description available'}</p>
@@ -45,13 +47,10 @@ const Character = () => {
 					</ul>
 				</div>
 			</header>
-			<main>
-				<h1>Comics</h1>
-				<ul>
-					{characterInfo.comics.items.length !== 0 ? characterInfo.comics.items.map((comic, index) => {
-						return <li key={index}>{comic.name}</li>
-					}) : "No comics"}
-				</ul>
+			<main className="section-single-item">
+				<SingleSection title="comics" items={characterInfo.comics?.items} />
+				<SingleSection title="series" items={characterInfo.series?.items} />
+				<SingleSection title="events" items={characterInfo.events?.items} />
 			</main>
 		</section>
 	) : < Loading />

@@ -19,15 +19,16 @@ const CardsContainer = () => {
 		if (name === "next-page") return setPage(page + 1);
 	};
 
+
+
 	useEffect(() => {
 		setLoading(true)
 		const fetchAllItems = async () => {
 			try {
 				const result = await getAllItems(page * 10, location.pathname)
 				if (result) {
-					setLoading(false)
 					setItemsInformation(result)
-					return;
+					return setLoading(false)
 				}
 				throw new Error('no se pudo obtener datos')
 			} catch (error) {
@@ -35,8 +36,6 @@ const CardsContainer = () => {
 			}
 		}
 		fetchAllItems()
-		return () => {
-		}
 	}, [page])
 
 
@@ -45,8 +44,8 @@ const CardsContainer = () => {
 			<Searcher setItemsInformation={setItemsInformation} />
 			<div className="cards-container-box" placeholder="cards-container-box">
 				{!loading ? (
-					itemsInformation.map((cardItem, i) => {
-						return <Card {...cardItem} key={i}></Card>;
+					itemsInformation?.map((cardItem, i) => {
+						return <Card {...cardItem} key={i} />;
 					})
 				) : (
 					<Loading />

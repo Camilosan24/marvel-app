@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react'
-
-import './style.css'
 import { getSingleCharacterByStartName } from '../../requests'
+import { useState, useEffect } from 'react'
+import './style.css'
+
 
 const Searcher = ({ setItemsInformation }) => {
 
    const [showInput, setShowInput] = useState(false)
    const [inputValue, setInputValue] = useState('')
    const [errorSearching, setErrorSearching] = useState(false)
+
    const onClickButton = () => {
       if (inputValue === '') return setShowInput(!showInput)
    }
@@ -18,7 +19,6 @@ const Searcher = ({ setItemsInformation }) => {
 
    //fetch a single character when inputValue change
    useEffect(() => {
-
       const searchCharacterByStartName = async () => {
          try {
             const res = await getSingleCharacterByStartName(inputValue)
@@ -32,7 +32,7 @@ const Searcher = ({ setItemsInformation }) => {
             setErrorSearching(true)
          }
       }
-      if (inputValue.length > 0) searchCharacterByStartName()
+      if (inputValue.length > 0) return searchCharacterByStartName();
    }, [inputValue])
 
    return (
