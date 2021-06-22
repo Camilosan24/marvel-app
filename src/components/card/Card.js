@@ -14,13 +14,12 @@ const Card = ({ name, thumbnail, title, id }) => {
 				<img
 					src={thumbnail.path + "/portrait_fantastic." + thumbnail.extension}
 					alt={name || title}
-					aria-labelledby={name || title}
 					width="200px"
 					onClick={handleOnClick}
 				/>
 			</figure>
 			<header>
-				<h1 id={name || title}>{name || title}</h1>
+				<h1>{name || title}</h1>
 			</header>
 		</div>
 	);

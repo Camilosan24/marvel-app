@@ -24,15 +24,17 @@ const Searcher = ({ setItemsInformation }) => {
             const res = await getSingleCharacterByStartName(inputValue)
             if (res) {
                setErrorSearching(false)
-               return setItemsInformation([res])
+               setItemsInformation([res])
             }
-            throw new Error('No se encontro')
-         } catch (e) {
+         } catch (error) {
             setItemsInformation([])
             setErrorSearching(true)
          }
+
+
+
       }
-      if (inputValue.length > 0) return searchCharacterByStartName();
+      if (inputValue.length > 0) searchCharacterByStartName();
    }, [inputValue])
 
    return (

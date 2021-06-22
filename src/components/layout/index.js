@@ -18,10 +18,12 @@ const Layout = ({ children }) => {
 					<LinkComponent route="/events" name="events" />
 				</nav>
 			</header>
+
 			<main className="main-content">
 				{children}
 				<div className="background"></div>
 			</main>
+
 			<footer>
 				<div className="logo-container">
 					<div className="logo"><span>m</span></div>
@@ -30,8 +32,14 @@ const Layout = ({ children }) => {
 					<h1>contact information</h1>
 					<ul>
 						<li>danielcamilo.sanchez@globant.com</li>
-						<li><i className="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/daniel-camilo-sanchez-barrag%C3%A1n-9192221a7/">linkedin</a></li>
-						<li><i className="fab fa-github"></i><a href="https://github.com/Camilosan24">github</a></li>
+						<li>
+							<i className="fab fa-linkedin-in"></i>
+							<a href="https://www.linkedin.com/in/daniel-camilo-sanchez-barrag%C3%A1n-9192221a7/">linkedin</a>
+						</li>
+						<li>
+							<i className="fab fa-github"></i>
+							<a href="https://github.com/Camilosan24">github</a>
+						</li>
 					</ul>
 				</div>
 				<span className="reserverd-rights">©2021 MARVEL</span>

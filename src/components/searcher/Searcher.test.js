@@ -1,7 +1,6 @@
 import Searcher from "./Searcher"
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import { prettyDOM } from '@testing-library/dom'
 import { getSingleCharacterByStartName } from '../../requests'
 import { act } from "react-dom/test-utils"
 
@@ -22,14 +21,13 @@ describe("testing for searcher component", () => {
    })
 
    test("hiderBox should be hide when it's render it by first time", () => {
-      const { input, container } = setup()
-      const buttonSearcher = container.getByLabelText('toggle input searcher')
+      const { container } = setup()
       const hiderBox = container.getByPlaceholderText('hider-box')
       expect(hiderBox).toHaveClass('hide')
    })
 
    test("hiderBox should be show when we click on button", () => {
-      const { input, container } = setup()
+      const { container } = setup()
       const buttonSearcher = container.getByLabelText('toggle input searcher')
       const hiderBox = container.getByPlaceholderText('hider-box')
       act(() => {
@@ -62,7 +60,5 @@ describe("testing for searcher component", () => {
          component = render(<Searcher setItemsInformation={mock} />)
       })
       await waitFor(() => expect(mock).toBeCalledWith([ironMan]))
-
-
    })
 })

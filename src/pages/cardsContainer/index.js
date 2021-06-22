@@ -25,12 +25,12 @@ const CardsContainer = () => {
 		setLoading(true)
 		const fetchAllItems = async () => {
 			try {
-				const result = await getAllItems(page * 10, location.pathname)
-				if (result) {
-					setItemsInformation(result)
+				const res = await getAllItems(page * 10, location.pathname)
+				if (res) {
+					setItemsInformation(res)
 					return setLoading(false)
 				}
-				throw new Error('no se pudo obtener datos')
+				throw new Error('We couldnt find data')
 			} catch (error) {
 				setItemsInformation([])
 			}

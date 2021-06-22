@@ -7,7 +7,7 @@ export function getAllItems(offset, section) {
 		fetch(`${URI + section}?limit=20&offset=${offset}&${CREDENTIALS}`)
 			.then((res) => res.json())
 			.then((res) => resolve(res.data.results))
-			.catch((err) => {
+			.catch(() => {
 				reject('no se pudo obtener');
 			});
 	});
@@ -18,7 +18,7 @@ export function getSingleCharacterById(id) {
 		fetch(`${URI}/characters/${id}?${CREDENTIALS}`)
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
-			.catch((err) => {
+			.catch(() => {
 				reject('no se pudo obtener');
 			});
 	});
@@ -31,7 +31,7 @@ export function getSingleCharacterByStartName(name) {
 		fetch(`${URI}/characters?nameStartsWith=${nameToSend}&${CREDENTIALS}`)
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
-			.catch((err) => {
+			.catch(() => {
 				reject('no se pudo obtener');
 			});
 	});
@@ -42,7 +42,7 @@ export function getSingleComicById(id) {
 		fetch(`${URI}/comics/${id}?${CREDENTIALS}`)
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
-			.catch((err) => {
+			.catch(() => {
 				reject('no se pudo obtener');
 			});
 	});
@@ -53,7 +53,7 @@ export function getSingleSerieById(id) {
 		fetch(`${URI}/series/${id}?${CREDENTIALS}`)
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
-			.catch((err) => {
+			.catch(() => {
 				reject('no se pudo obtener');
 			});
 	});
@@ -65,7 +65,7 @@ export function getSingleEventById(id) {
 		fetch(`${URI}/events/${id}?${CREDENTIALS}`)
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
-			.catch((err) => {
+			.catch(() => {
 				reject('no se pudo obtener');
 			});
 	});

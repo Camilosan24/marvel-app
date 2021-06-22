@@ -1,7 +1,6 @@
 import CardsContainer from './index'
-import { render, screen, waitFor, fireEvent } from '@testing-library/react'
+import { render, waitFor, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import { prettyDOM } from '@testing-library/dom'
 import * as requests from '../../requests'
 import { act } from 'react-dom/test-utils'
 
@@ -39,7 +38,11 @@ describe('tests for cardsContainer component', () => {
       })
    })
    test('should render two childrens inside of cardsBox', async () => {
-      let component = render(< CardsContainer />)
+      let component;
+      act(() => {
+         component = render(< CardsContainer />)
+
+      })
       let cardsBox = component.getByPlaceholderText('cards-container-box')
       await waitFor(() => {
          expect(cardsBox.childNodes.length).toBe(2)

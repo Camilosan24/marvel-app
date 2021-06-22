@@ -1,6 +1,5 @@
 import Layout from './index'
-import { render, fireEvent } from '@testing-library/react'
-import { prettyDOM } from '@testing-library/dom'
+import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import '@testing-library/jest-dom/extend-expect'
 
@@ -11,7 +10,6 @@ jest.mock('react-router-dom', () => ({
       push: mockHistoryPush,
    }),
 }));
-
 
 const setup = () => {
    let component = render(
