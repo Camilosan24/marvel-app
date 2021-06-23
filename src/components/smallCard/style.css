@@ -1,0 +1,28 @@
+fieldset .small-card-box{
+   display: flex;
+   flex-direction: row;
+   max-height: 45px;
+   margin-top: 10px;
+   background-color: rgb(189, 189, 189);
+   /* border-radius: 15px; */
+   padding: 5px;
+   /* transition: .2s; */
+}
+
+fieldset .small-card-box:hover{
+   cursor: pointer;
+   transform: scale(1.01);
+   box-shadow: 0 0 10px 1px red;
+   /* border: 1px solid red; */
+}
+
+fieldset .small-card-box img{
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+}
+
+fieldset .small-card-box span{
+   margin-left: 10px;
+   font-weight: 900;
+}

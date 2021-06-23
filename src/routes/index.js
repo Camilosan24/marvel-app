@@ -16,11 +16,11 @@ const Routes = () => {
 					<Route exact path="/characters" component={CardsContainer} />
 					<Route exact path="/characters/:id" component={Character} />
 					<Route exact path="/comics" component={CardsContainer} />
-					<Route exact path="/comics/:id" component={Comic} />
+					<Route exact path="/comics/:id" component={Character} />
 					<Route exact path="/series" component={CardsContainer} />
-					<Route exact path="/series/:id" component={Serie} />
+					<Route exact path="/series/:id" component={Character} />
 					<Route exact path="/events" component={CardsContainer} />
-					<Route exact path="/events/:id" component={Events} />
+					<Route exact path="/events/:id" component={Character} />
 				</Layout>
 			</Switch>
 		</BrowserRouter>

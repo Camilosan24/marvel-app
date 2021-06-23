@@ -24,13 +24,13 @@ export function getSingleCharacterById(id) {
 	});
 }
 
-export function getSingleCharacterByStartName(name) {
+export function getAllCharactersByStartName(name) {
 	return new Promise((resolve, reject) => {
 		if (typeof name !== 'string') return reject('no se pudo obtener')
 		const nameToSend = name.replace(' ', "%20")
 		fetch(`${URI}/characters?nameStartsWith=${nameToSend}&${CREDENTIALS}`)
 			.then((res) => res.json())
-			.then((res) => resolve(...res.data.results))
+			.then((res) => resolve(res.data.results))
 			.catch(() => {
 				reject('no se pudo obtener');
 			});

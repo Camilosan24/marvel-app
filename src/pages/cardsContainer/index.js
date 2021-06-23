@@ -27,8 +27,8 @@ const CardsContainer = () => {
 			try {
 				const res = await getAllItems(page * 10, location.pathname)
 				if (res) {
-					setItemsInformation(res)
-					return setLoading(false)
+					setLoading(false)
+					return setItemsInformation(res)
 				}
 				throw new Error('We couldnt find data')
 			} catch (error) {
@@ -41,7 +41,7 @@ const CardsContainer = () => {
 
 	return (
 		<section>
-			<Searcher setItemsInformation={setItemsInformation} />
+			{location.pathname === '/characters' && <Searcher setItemsInformation={setItemsInformation} />}
 			<div className="cards-container-box" placeholder="cards-container-box">
 				{!loading ? (
 					itemsInformation?.map((cardItem, i) => {

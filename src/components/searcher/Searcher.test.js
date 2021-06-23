@@ -1,16 +1,15 @@
 import Searcher from "./Searcher"
-import { render, fireEvent, waitFor } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import { getSingleCharacterByStartName } from '../../requests'
+import { getAllCharactersByStartName } from '../../requests'
 import { act } from "react-dom/test-utils"
 
 jest.mock("../../requests")
 
 const setup = () => {
-   const mock = jest.fn()
-   const container = render(<Searcher setItemsInformation={mock} />)
+   const container = render(<Searcher />)
    const input = container.getByPlaceholderText("Enter a charater's name")
-   return { container, input, mock }
+   return { container, input }
 }
 
 describe("testing for searcher component", () => {
@@ -36,29 +35,11 @@ describe("testing for searcher component", () => {
       expect(hiderBox).not.toHaveClass('hide')
    })
 
-   test("should have called getSingleCharacterByStartName with iron man as parameter", async () => {
-      let mock = jest.fn()
-      let component = render(<Searcher setItemsInformation={mock} />)
+   test("should have called getAllCharactersByStartName with iron man as parameter", async () => {
+      let component = render(<Searcher  />)
       const input = component.getByPlaceholderText("Enter a charater's name")
       fireEvent.change(input, { target: { value: "iron man" } })
-      expect(getSingleCharacterByStartName).toHaveBeenCalledWith('iron man')
+      expect(getAllCharactersByStartName).toHaveBeenCalledWith('iron man')
 
-   })
-
-   test("should mock with [ironMan] as parameter because response was good", async () => {
-      let mock = jest.fn()
-      let component = render(<Searcher setItemsInformation={mock} />)
-      const ironMan = {
-         id: 1009368,
-         name: 'iron man'
-      }
-      getSingleCharacterByStartName.mockResolvedValueOnce(ironMan)
-      const input = component.getByPlaceholderText("Enter a charater's name")
-
-      await act(async () => {
-         fireEvent.change(input, { target: { value: "iron man" } })
-         component = render(<Searcher setItemsInformation={mock} />)
-      })
-      await waitFor(() => expect(mock).toBeCalledWith([ironMan]))
    })
 })

@@ -1,16 +1,19 @@
-import { getSingleCharacterByStartName } from '../../requests'
+import { getAllCharactersByStartName } from '../../requests'
 import { useState, useEffect } from 'react'
+import useInputMediator from '../../hooks/useInputMediator'
+import ListSmallCards from '../listSmallCards.js'
 import './style.css'
 
 
-const Searcher = ({ setItemsInformation }) => {
-
+const Searcher = () => {
    const [showInput, setShowInput] = useState(false)
    const [inputValue, setInputValue] = useState('')
+   const inputValueToRead = useInputMediator(inputValue)
    const [errorSearching, setErrorSearching] = useState(false)
+   const [charactersFound, setcharactersFound] = useState([])
 
    const onClickButton = () => {
-      if (inputValue === '') return setShowInput(!showInput)
+      if (inputValue === '') setShowInput(!showInput)
    }
 
    const handleOnChange = (e) => {
@@ -21,21 +24,22 @@ const Searcher = ({ setItemsInformation }) => {
    useEffect(() => {
       const searchCharacterByStartName = async () => {
          try {
-            const res = await getSingleCharacterByStartName(inputValue)
-            if (res) {
+            const res = await getAllCharactersByStartName(inputValueToRead)
+            if (res.length > 0) {
                setErrorSearching(false)
-               setItemsInformation([res])
+               setcharactersFound(res)
+               return;
             }
+            throw new Error()
          } catch (error) {
-            setItemsInformation([])
             setErrorSearching(true)
+            setcharactersFound([])
          }
-
-
-
       }
-      if (inputValue.length > 0) searchCharacterByStartName();
-   }, [inputValue])
+      if (inputValueToRead.length > 0) return searchCharacterByStartName();
+      setcharactersFound([])
+      setErrorSearching(false)
+   }, [inputValueToRead])
 
    return (
       <fieldset className="fielset-for-search">
@@ -43,10 +47,11 @@ const Searcher = ({ setItemsInformation }) => {
             <div className={`complete-input-box ${!showInput && "hide"}`} placeholder="hider-box">
                <div className="rounded"></div>
                <input type="text" placeholder="Enter a charater's name" onChange={handleOnChange} value={inputValue} />
+               {showInput && <ListSmallCards charactersFound={charactersFound} />}
             </div>
          </div>
          <button onClick={onClickButton} style={{ background: errorSearching && 'red' }} aria-label="toggle input searcher"><i className="fas fa-search"></i></button>
-      </fieldset>
+      </fieldset >
    )
 }
 

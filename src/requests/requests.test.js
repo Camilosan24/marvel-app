@@ -1,4 +1,4 @@
-import { getAllItems, getSingleCharacterById, getSingleCharacterByStartName, getSingleComicById, getSingleEventById, getSingleSerieById } from './index'
+import { getAllItems, getSingleCharacterById, getAllCharactersByStartName, getSingleComicById, getSingleEventById, getSingleSerieById } from './index'
 
 
 describe('tests for getAllItems', () => {
@@ -40,16 +40,12 @@ describe('tests for getSingleCharacterById', () => {
 });
 
 describe('tests for getSingleCharacterByStartName', () => {
-   test('should return character iron man', async () => {
-      const result = await getSingleCharacterByStartName('iron man')
-      expect(result).toHaveProperty('id', 1009368)
-   })
    test("numbers aren't accepted", async () => {
-      const result = getSingleCharacterByStartName(1009368)
+      const result = getAllCharactersByStartName(1009368)
       await expect(result).rejects.toBe('no se pudo obtener')
    })
    test("booleans are not accepted", async () => {
-      const result = getSingleCharacterByStartName(true)
+      const result = getAllCharactersByStartName(true)
       await expect(result).rejects.toBe('no se pudo obtener')
    })
 })
