@@ -1,25 +1,19 @@
 import React from "react";
-import { useHistory, useLocation, Link } from "react-router-dom";
 import "./style.css";
+import {Link} from "react-router-dom"
 
-const Card = ({ name, thumbnail, title, id }) => {
-	const location = useLocation();
-	const history = useHistory();
-	const handleOnClick = () => {
-		history.push(`${location.pathname}/${id}`);
-	};
+const Card = ({ name, thumbnail, title, id, locationParam }) => {
 	return (
-		<Link className="card" to={`${location.pathname}/${id}`}>
+		<Link className="card" to={`${locationParam.pathname}/${id}`}>
 			<figure>
 				<img
 					src={thumbnail.path + "/portrait_fantastic." + thumbnail.extension}
-					aria-labelledby="character name"
+					alt={name || title}
 					width="200px"
-					onClick={handleOnClick}
 				/>
 			</figure>
 			<header>
-				<span >{name || title}</span>
+				<h1>{name || title}</h1>
 			</header>
 		</Link>
 	);

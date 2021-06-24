@@ -38,7 +38,7 @@ describe('tests for cardsContainer component', () => {
    })
    test('should render two childrens inside of cardsBox', async () => {
       let component;
-      act(() => {
+      await act(async () => {
          component = render(< CardsContainer />)
 
       })

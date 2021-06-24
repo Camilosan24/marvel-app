@@ -7,7 +7,7 @@ describe('tests for getAllItems', () => {
       expect(result.length).toBe(20)
    });
    test('sholud return error no se pudo obtener invalid section', async () => {
-      await expect(getAllItems(0, '/character')).rejects.toEqual('no se pudo obtener')
+      await expect(getAllItems(0, '/character')).rejects.toEqual('couldnt be found')
    })
 })
 
@@ -35,18 +35,18 @@ describe('tests for getSingleCharacterById', () => {
 
    test('shouldnt accept string ', async () => {
       const result = getSingleCharacterById('true')
-      await expect(result).rejects.toBe('no se pudo obtener')
+      await expect(result).rejects.toBe('couldnt be found')
    });
 });
 
 describe('tests for getSingleCharacterByStartName', () => {
    test("numbers aren't accepted", async () => {
       const result = getAllCharactersByStartName(1009368)
-      await expect(result).rejects.toBe('no se pudo obtener')
+      await expect(result).rejects.toBe('couldnt be found')
    })
    test("booleans are not accepted", async () => {
       const result = getAllCharactersByStartName(true)
-      await expect(result).rejects.toBe('no se pudo obtener')
+      await expect(result).rejects.toBe('couldnt be found')
    })
 })
 
@@ -58,7 +58,7 @@ describe('tests for getSingleComicById', () => {
 
    test('shouldnt accept booleans', async () => {
       const result = getSingleComicById(true)
-      await expect(result).rejects.toBe('no se pudo obtener')
+      await expect(result).rejects.toBe('couldnt be found')
    });
    test('should has a propertly title', async () => {
       const result = await getSingleComicById(3627)
@@ -75,7 +75,7 @@ describe('tests for getSingleEventById', () => {
 
    test("shouldn't accept strings", async () => {
       const result = getSingleEventById('hola')
-      await expect(result).rejects.toBe('no se pudo obtener')
+      await expect(result).rejects.toBe('couldnt be found')
    });
 })
 
@@ -87,6 +87,6 @@ describe('tests for getSingleSerieById', () => {
 
    test('shouldnt accept booleans', async () => {
       const result = getSingleSerieById(true)
-      await expect(result).rejects.toBe('no se pudo obtener')
+      await expect(result).rejects.toBe('couldnt be found')
    })
 })

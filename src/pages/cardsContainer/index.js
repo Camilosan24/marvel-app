@@ -43,7 +43,7 @@ const CardsContainer = () => {
 	return (
 		<section className="section-container">
 			{location.pathname === '/characters' && <Searcher setItemsInformation={setItemsInformation} />}
-			{!loading ? <ListCards itemsInformation={itemsInformation} /> : <Loading />}
+			{!loading ? <ListCards itemsInformation={itemsInformation} locationParam={location.pathname} /> : <Loading /> }
 			<Pagination changePage={changePage} page={page} />
 		</section>
 	);
