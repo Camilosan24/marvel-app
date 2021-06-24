@@ -36,10 +36,11 @@ describe("testing for searcher component", () => {
    })
 
    test("should have called getAllCharactersByStartName with iron man as parameter", async () => {
-      let component = render(<Searcher  />)
+      let component = render(<Searcher />)
       const input = component.getByPlaceholderText("Enter a charater's name")
       fireEvent.change(input, { target: { value: "iron man" } })
-      expect(getAllCharactersByStartName).toHaveBeenCalledWith('iron man')
-
+      setTimeout(() => {
+         expect(getAllCharactersByStartName).toHaveBeenCalledWith('iron man')
+      }, 300)
    })
 })

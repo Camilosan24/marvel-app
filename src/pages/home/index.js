@@ -39,6 +39,8 @@ const Home = () => {
 					<img
 						src="https://allegra.flowersetcfresno.com/pic/734091_full-fondos-de-pantalla-4k-marvel-vertical-spider-man-vertical-iphone-wallpaper-spiderman-avengers.jpg"
 						alt="background"
+						width="500px"
+						height="1000px"
 					/>
 				</div>
 			</div>

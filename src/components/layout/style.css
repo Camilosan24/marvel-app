@@ -239,7 +239,7 @@ footer span.reserverd-rights {
 @media screen and (min-width: 1450px) {
 	main.main-content > section {
 		display: flex;
-		width: 80vw;
+		width: 85vw;
 		flex-direction: row;
 		justify-content: center;
 	}

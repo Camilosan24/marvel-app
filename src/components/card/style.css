@@ -3,8 +3,8 @@
 	flex-direction: column;
 	align-items: center;
 	margin-top: 30px;
-	width: 100%;
-	min-width: 300px;
+	width: 200px;
+	margin: 25px;
 }
 .card figure {
 	margin-bottom: 10px;
@@ -39,26 +39,16 @@
 	text-align: center;
 }
 
-@media screen and (min-width: 450px) {
-	.card {
-		width: 50%;
-	}
-}
-
-@media screen and (min-width: 650px) {
-	.card {
-		width: 33%;
-	}
-}
 
 @media screen and (min-width: 916px) {
 	.card {
-		width: 25%;
+		margin: 35px;
 	}
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
 	.card {
-		width: 20%;
+		margin: 50px;
 	}
 }
+

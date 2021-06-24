@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import "./style.css";
 
 const Card = ({ name, thumbnail, title, id }) => {
@@ -9,19 +9,19 @@ const Card = ({ name, thumbnail, title, id }) => {
 		history.push(`${location.pathname}/${id}`);
 	};
 	return (
-		<div className="card" >
+		<Link className="card" to={`${location.pathname}/${id}`}>
 			<figure>
 				<img
 					src={thumbnail.path + "/portrait_fantastic." + thumbnail.extension}
-					alt={name || title}
+					aria-labelledby="character name"
 					width="200px"
 					onClick={handleOnClick}
 				/>
 			</figure>
 			<header>
-				<h1>{name || title}</h1>
+				<span >{name || title}</span>
 			</header>
-		</div>
+		</Link>
 	);
 };
 

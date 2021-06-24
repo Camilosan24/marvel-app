@@ -1,4 +1,4 @@
-import Character from './index'
+import Item from './index'
 import { render, act } from '@testing-library/react'
 import * as requests from '../../requests'
 import '@testing-library/jest-dom/extend-expect'
@@ -9,6 +9,9 @@ jest.mock('react-router-dom', () => ({
    ...jest.requireActual('react-router-dom'),
    useParams: () => ({
       id: 1009368
+   }),
+   useLocation: () => ({
+      pathname: '/characters/1009368'
    })
 }));
 
@@ -291,18 +294,18 @@ beforeEach(() => {
    })
 })
 
-describe('tests for character component', () => {
+describe('tests for Item component', () => {
    test('should have been called once', async () => {
       let component;
       await act(async () => {
-         component = render(<Character items={ironMan.comics.items} />)
+         component = render(<Item />)
       })
       expect(requests.getSingleCharacterById).toHaveBeenCalledTimes(1)
    });
    test('should have been called with id we got by params in our react-router-dom', async () => {
       let component;
       await act(async () => {
-         component = render(<Character items={ironMan.comics.items} />)
+         component = render(<Item />)
       })
       expect(requests.getSingleCharacterById).toHaveBeenCalledWith(1009368)
    });

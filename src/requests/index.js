@@ -8,7 +8,7 @@ export function getAllItems(offset, section) {
 			.then((res) => res.json())
 			.then((res) => resolve(res.data.results))
 			.catch(() => {
-				reject('no se pudo obtener');
+				reject('couldnt be found');
 			});
 	});
 }
@@ -19,20 +19,20 @@ export function getSingleCharacterById(id) {
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch(() => {
-				reject('no se pudo obtener');
+				reject('couldnt be found');
 			});
 	});
 }
 
 export function getAllCharactersByStartName(name) {
 	return new Promise((resolve, reject) => {
-		if (typeof name !== 'string') return reject('no se pudo obtener')
+		if (typeof name !== 'string') return reject('couldnt be found')
 		const nameToSend = name.replace(' ', "%20")
 		fetch(`${URI}/characters?nameStartsWith=${nameToSend}&${CREDENTIALS}`)
 			.then((res) => res.json())
 			.then((res) => resolve(res.data.results))
 			.catch(() => {
-				reject('no se pudo obtener');
+				reject('couldnt be found');
 			});
 	});
 }
@@ -43,7 +43,7 @@ export function getSingleComicById(id) {
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch(() => {
-				reject('no se pudo obtener');
+				reject('couldnt be found');
 			});
 	});
 }
@@ -54,7 +54,7 @@ export function getSingleSerieById(id) {
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch(() => {
-				reject('no se pudo obtener');
+				reject('couldnt be found');
 			});
 	});
 }
@@ -66,7 +66,7 @@ export function getSingleEventById(id) {
 			.then((res) => res.json())
 			.then((res) => resolve(...res.data.results))
 			.catch(() => {
-				reject('no se pudo obtener');
+				reject('couldnt be found');
 			});
 	});
 }

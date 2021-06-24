@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { getAllItems } from '../../requests'
 import { useEffect, useState } from "react";
 import Pagination from "../../components/pagination";
-import Card from "../../components/card/Card";
+import ListCards from '../../components/listCards'
 import Loading from "../../components/Loading";
 import Searcher from "../../components/searcher/Searcher";
 import './style.css'
@@ -22,7 +22,7 @@ const CardsContainer = () => {
 
 
 	useEffect(() => {
-		setLoading(true)
+
 		const fetchAllItems = async () => {
 			try {
 				const res = await getAllItems(page * 10, location.pathname)
@@ -35,23 +35,15 @@ const CardsContainer = () => {
 				setItemsInformation([])
 			}
 		}
+		setLoading(true)
 		fetchAllItems()
 	}, [page])
 
 
 	return (
-		<section>
+		<section className="section-container">
 			{location.pathname === '/characters' && <Searcher setItemsInformation={setItemsInformation} />}
-			<div className="cards-container-box" placeholder="cards-container-box">
-				{!loading ? (
-					itemsInformation?.map((cardItem, i) => {
-						return <Card {...cardItem} key={i} />;
-					})
-				) : (
-					<Loading />
-				)}
-			</div>
-
+			{!loading ? <ListCards itemsInformation={itemsInformation} /> : <Loading />}
 			<Pagination changePage={changePage} page={page} />
 		</section>
 	);

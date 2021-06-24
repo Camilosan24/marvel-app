@@ -23,14 +23,21 @@ describe('tests for SmallCard', () => {
       }
    }
 
-   test('should have property id', () => {
+   test('should have an image defined', () => {
       const component = render(<SmallCard image={character.thumbnail} name={character.name} key={character.id} id={character.id} />)
-      expect(component.props).toHaveProperty('id', character.id,)
+      const image = component.getAllByRole('img')
+      expect(image).toBeDefined()
    })
 
    test('should have property id', () => {
       const component = render(<SmallCard image={character.thumbnail} name={character.name} key={character.id} id={character.id} />)
       expect(component.getByLabelText('small-card-box')).toBeDefined()
+   })
+
+   test('should have property id', () => {
+      const component = render(<SmallCard image={character.thumbnail} name={character.name} key={character.id} id={character.id} />)
+      const name =component.getByLabelText('character-name')
+      expect(name.innerHTML).toBe(character.name)
    })
 
 });

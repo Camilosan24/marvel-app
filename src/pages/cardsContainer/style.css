@@ -4,3 +4,9 @@ section .cards-container-box{
    flex-wrap: wrap;
    justify-content: center;
 }
+
+section .section-container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}

@@ -31,7 +31,6 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('tests for cardsContainer component', () => {
-
    beforeEach(() => {
       jest.spyOn(requests, 'getAllItems').mockImplementation(() => {
          return Promise.resolve(items)
@@ -85,7 +84,7 @@ describe('tests for cardsContainer component', () => {
    })
 
    test('should do nothing the number is the same', async () => {
-      let component = render(< CardsContainer />)
+      let component = render(<CardsContainer />)
       let buttonPrev = component.getByLabelText('go to the previous page')
       let pageNumber = component.getByLabelText('page number')
       act(() => {

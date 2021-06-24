@@ -43,14 +43,14 @@ const Searcher = () => {
 
    return (
       <fieldset className="fielset-for-search">
-         <div className="input-box">
-            <div className={`complete-input-box ${!showInput && "hide"}`} placeholder="hider-box">
-               <div className="rounded"></div>
-               <input type="text" placeholder="Enter a charater's name" onChange={handleOnChange} value={inputValue} />
-               {showInput && <ListSmallCards charactersFound={charactersFound} />}
+            <div className="input-box">
+               <div className={`complete-input-box ${!showInput && "hide"}`} placeholder="hider-box">
+                  <div className="rounded"></div>
+                  <input type="text" placeholder="Enter a charater's name" onChange={handleOnChange} value={inputValue} />
+                  {showInput && <ListSmallCards charactersFound={charactersFound} />}
+               </div>
             </div>
-         </div>
-         <button onClick={onClickButton} style={{ background: errorSearching && 'red' }} aria-label="toggle input searcher"><i className="fas fa-search"></i></button>
+            <button onClick={onClickButton} style={{ background: errorSearching && 'red' }} aria-label="toggle input searcher"><i className="fas fa-search"></i></button>
       </fieldset >
    )
 }
