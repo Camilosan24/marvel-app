@@ -3,17 +3,18 @@ fieldset .small-card-box{
    flex-direction: row;
    max-height: 45px;
    margin-top: 10px;
-   background-color: rgb(189, 189, 189);
+   background-color: rgba(189, 189, 189, 0.541);
    /* border-radius: 15px; */
    padding: 5px;
+   text-decoration: none;
    /* transition: .2s; */
+   box-shadow: 0 0 5px 1px rgba(36, 36, 36, 0.253);
 }
 
 fieldset .small-card-box:hover{
    cursor: pointer;
    transform: scale(1.01);
-   box-shadow: 0 0 10px 1px red;
-   /* border: 1px solid red; */
+   box-shadow: 0 0 5px 1px red;
 }
 
 fieldset .small-card-box img{
@@ -25,4 +26,5 @@ fieldset .small-card-box img{
 fieldset .small-card-box span{
    margin-left: 10px;
    font-weight: 900;
+   color: black;
 }

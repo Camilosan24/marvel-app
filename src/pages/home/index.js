@@ -20,7 +20,7 @@ const Home = () => {
 						<br />
 						<p>
 							In this web application, you're able to see all the content we have
-							for you like comics, characters you love, movies, tv shows and
+							for you like comics, characters you love, tv shows and
 							games, go ahead, and let's get fun.
 						</p>
 

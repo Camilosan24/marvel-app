@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
-const Card = ({ name, thumbnail, title, id, locationParam }) => {
+const Card = ({ name, thumbnail, title, id, locationPathname }) => {
 	return (
-		<Link className="card" to={`${locationParam.pathname}/${id}`}>
+		<Link  to={`${locationPathname}/${id}`} className="card">
 			<figure>
 				<img
 					src={thumbnail.path + "/portrait_fantastic." + thumbnail.extension}

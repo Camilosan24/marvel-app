@@ -25,7 +25,6 @@ const Item = () => {
 		if (sectionName !== 'series' && sectionName === 'comics') return <SingleSection title="series" items={itemInfo.series} />;
 		if (sectionName !== 'series') return <SingleSection title="series" items={itemInfo.series?.items} />
 		return null;
-
 	}
 
 	//fetch items by section

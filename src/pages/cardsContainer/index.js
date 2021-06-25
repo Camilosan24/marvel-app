@@ -19,10 +19,7 @@ const CardsContainer = () => {
 		if (name === "next-page") return setPage(page + 1);
 	};
 
-
-
 	useEffect(() => {
-
 		const fetchAllItems = async () => {
 			try {
 				const res = await getAllItems(page * 10, location.pathname)
@@ -43,7 +40,7 @@ const CardsContainer = () => {
 	return (
 		<section className="section-container">
 			{location.pathname === '/characters' && <Searcher setItemsInformation={setItemsInformation} />}
-			{!loading ? <ListCards itemsInformation={itemsInformation} locationParam={location.pathname} /> : <Loading /> }
+			{!loading ? <ListCards itemsInformation={itemsInformation} locationPathname={location.pathname} /> : <Loading /> }
 			<Pagination changePage={changePage} page={page} />
 		</section>
 	);
