@@ -81,8 +81,8 @@ describe('tests for getSingleEventById', () => {
 
 describe('tests for getSingleSerieById', () => {
    test('should have property id', async () => {
-      const result = await getSingleSerieById(29697)
-      expect(result).toHaveProperty('id', 29697)
+      const data = await getSingleSerieById(29697)
+      expect(data).toHaveProperty('id', 29697)
    })
 
    test('shouldnt accept booleans', async () => {

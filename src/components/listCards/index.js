@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from '../card/Card';
 
-const ListCards = ({ itemsInformation, locationPathname }) => {
+const ListCards = ({ itemsInformation, sectionName, topSection, onClickCard }) => {
    return (
-      <div className="cards-container-box" placeholder="cards-container-box">
+      <div className="cards-container-box" placeholder="cards-container-box" ref={topSection}>
          {
             itemsInformation?.map((cardItem, i) => {
-               return <Card {...cardItem} key={i} locationPathname={locationPathname} />;
+               return <Card {...cardItem} key={i} sectionName={sectionName} onClickCard={() => onClickCard({id: cardItem.id, sectionName, cardItem})} />;
             })
          }
       </div>

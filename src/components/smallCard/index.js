@@ -1,17 +1,14 @@
-import {  Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { removeParentesisContent } from '../../assets'
 import './style.css'
 
-const SmallCard = ({ image, name, id }) => {
-   const changeName = () => {
-      const regex = /(\(|\))/;
-      if (name.includes("(")) return name.substr(0, name.match(regex).index)
-      return name;
-   }
+const SmallCard = ({ image, name, id, onClickCard }) => {
+
    return (
-      <Link to={`/characters/${id}`} className="small-card-box" style={{ width: "100%", display: 'flex' }} aria-label="small-card-box">
+      <Link to={`/characters/${id}`} className="small-card-box" style={{ width: "100%", display: 'flex' }} aria-label="small-card-box" onClick={onClickCard}>
          <img src={image.path + "/portrait_small." + image.extension} alt="" />
          <span aria-label="character-name">
-            {changeName()}
+            {removeParentesisContent(name)}
          </span>
       </Link>
    )

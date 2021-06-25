@@ -8,7 +8,7 @@ const Pagination = ({ changePage, page }) => {
 				<i className="fas fa-arrow-left"></i>
 			</button>
 			<div className="page-number" aria-label="page number">
-				{page + 1}
+				{page}
 			</div>
 			<button onClick={changePage} name="next-page" aria-label="go to the next page">
 				<i className="fas fa-arrow-right"></i>
