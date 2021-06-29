@@ -6,9 +6,11 @@ const Layout = ({ children }) => {
 
 	return (
 		<div className="container">
-			<header className="main-header">
-				<div className="bg-title">
-					<a href="https://developer.marvel.com/"><h1>marvel</h1></a>
+			<header className="container__header">
+				<div className="container__header-bg-title">
+					<a href="https://developer.marvel.com/">
+						<h1 className="container__header-title">marvel</h1>
+					</a>
 				</div>
 				<nav className="navigation">
 					<LinkComponent route="/" name="home" />
@@ -21,28 +23,28 @@ const Layout = ({ children }) => {
 
 			<main className="main-content">
 				{children}
-				<div className="background"></div>
+				<div className="main-content__background"></div>
 			</main>
 
-			<footer>
-				<div className="logo-container">
-					<div className="logo"><span>m</span></div>
+			<footer className="footer">
+				<div className="footer__logo-container">
+					<div className="footer__logo"><span className="footer__logo-letter">m</span></div>
 				</div>
-				<div className="information-container">
-					<h1>contact information</h1>
-					<ul>
-						<li>danielcamilo.sanchez@globant.com</li>
-						<li>
+				<div className="footer__contact-info">
+					<h1 className="footer__contact-info--uppercase">contact information</h1>
+					<ul className="footer__list">
+						<li className="footer__list-item">danielcamilo.sanchez@globant.com</li>
+						<li className="footer__list-item">
 							<i className="fab fa-linkedin-in"></i>
-							<a href="https://www.linkedin.com/in/daniel-camilo-sanchez-barrag%C3%A1n-9192221a7/">linkedin</a>
+							<a className="footer__a" href="https://www.linkedin.com/in/daniel-camilo-sanchez-barrag%C3%A1n-9192221a7/">linkedin</a>
 						</li>
-						<li>
+						<li className="footer__list-item">
 							<i className="fab fa-github"></i>
-							<a href="https://github.com/Camilosan24">github</a>
+							<a className="footer__a" href="https://github.com/Camilosan24">github</a>
 						</li>
 					</ul>
 				</div>
-				<span className="reserverd-rights">©2021 MARVEL</span>
+				<span className="footer__copy-right">©2021 MARVEL</span>
 			</footer>
 		</div>
 	);

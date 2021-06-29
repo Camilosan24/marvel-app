@@ -5,7 +5,7 @@
 	margin-top: 10px;
 }
 
-.pagination button {
+.pagination__button {
 	transition: 0.2s;
 	padding: 5px 10px;
 	width: 50px;
@@ -15,12 +15,12 @@
 	color: white;
 }
 
-.pagination button:hover {
+.pagination__button:hover {
 	cursor: pointer;
 	transform: scale(1.1);
 }
 
-.pagination .page-number {
+.pagination__number-box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -37,7 +37,7 @@
 }
 
 @media screen and (min-width: 916px) {
-	section .pagination {
+	.pagination {
 		margin-top: 50px;
 	}
 }

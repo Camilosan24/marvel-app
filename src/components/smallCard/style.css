@@ -1,29 +1,27 @@
-fieldset .small-card-box{
+.searcher__smallcard{
    display: flex;
    flex-direction: row;
    max-height: 45px;
    margin-top: 10px;
    background-color: rgba(189, 189, 189, 0.541);
-   /* border-radius: 15px; */
    padding: 5px;
    text-decoration: none;
-   /* transition: .2s; */
    box-shadow: 0 0 5px 1px rgba(36, 36, 36, 0.253);
 }
 
-fieldset .small-card-box:hover{
+.searcher__smallcard:hover{
    cursor: pointer;
    transform: scale(1.01);
    box-shadow: 0 0 5px 1px red;
 }
 
-fieldset .small-card-box img{
+.searcher__smallcard-img{
    width: 30px;
    height: 30px;
    border-radius: 50%;
 }
 
-fieldset .small-card-box span{
+.searcher__smallcard-title{
    margin-left: 10px;
    font-weight: 900;
    color: black;

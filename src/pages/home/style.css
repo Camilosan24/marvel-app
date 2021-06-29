@@ -1,4 +1,4 @@
-main.main-content > section {
+.welcome {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -7,52 +7,53 @@ main.main-content > section {
 	padding: 10px;
 }
 
-section .welcoming-box {
+.welcome__wrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
 
-section .welcome-left {
+.welcome__wrapper--left {
 	width: 95%;
 }
 
-.welcome-left header.welcoming {
+.welcome__wrapper--right {
+	display: none;
+}
+
+.welcome__header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-transform: uppercase;
 }
 
-.welcome-left header.welcoming h1 {
+.welcome__header-title {
 	font-size: 3rem;
 }
-.welcome-left header.welcoming h2 {
+.welcome__header-subtitle {
 	font-size: 1rem;
 	font-weight: 500;
 }
 
-section .welcome-left .main-description {
+.welcome__description {
 	margin-top: 20px;
 	width: 90%;
 	min-height: 400px;
 	text-align: justify;
 }
 
-section .welcome-right {
-	display: none;
-}
 
-section .main-description p {
+.welcome__p {
 	font-weight: 500;
 }
 
-.main-description ul {
+.welcome__list {
 	margin-top: 20px;
 	transform: translateX(15px);
 }
 
-.main-description address {
+.welcome__address {
 	display: flex;
 	justify-content: center;
 	background-color: red;
@@ -64,12 +65,12 @@ section .main-description p {
 	z-index: 100;
 }
 
-.main-description address:hover {
+.welcome__address:hover {
 	transition: 0.2s;
 	transform: translateX(50px) translateY(48px);
 }
 
-.main-description address a {
+.welcome__a {
 	color: white;
 	font-size: 1.2rem;
 	text-decoration: none;
@@ -79,14 +80,14 @@ section .main-description p {
 }
 
 @media screen and (min-width: 700px) {
-	section .welcome-left {
+	.welcome__wrapper--left {
 		width: 40%;
 	}
-	section .welcome-right {
+	.welcome__wrapper--right {
 		display: flex;
 		width: 45%;
 	}
-	section .welcome-right img {
+	.welcome__img {
 		display: flex;
 		width: 100%;
 		opacity: 1;

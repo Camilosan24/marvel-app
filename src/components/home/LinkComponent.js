@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom'
 const LinkComponent = ({ route, name }) => {
 	const location = useLocation()
 	return (
-		<address className="adress-container">
-			<Link to={route} className={route.includes(location.pathname) && location.pathname !== "/" ? "section-active" : ''}>
+		<address className="navigation__adress">
+			<Link to={route} className={`navigation__a ${route.includes(location.pathname) && location.pathname !== "/" ? "navigation__a--active" : ''}`}>
 				{name}
 			</Link>
 		</address>

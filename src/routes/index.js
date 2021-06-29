@@ -1,11 +1,13 @@
 import { Suspense, lazy } from 'react'
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import ItemsState from '../context/ItemsContext/ItemsState'
 import Layout from '../components/layout'
 import Home from '../pages/home'
+import PageNotFound from '../pages/404'
 
 const CardsContainer = lazy(() => import('../pages/cardsContainer'))
 const Item = lazy(() => import('../pages/item'))
+
 
 
 const Routes = () => {
@@ -13,8 +15,8 @@ const Routes = () => {
 		<BrowserRouter>
 			<Switch>
 				<Layout>
-					<Route exact path="/" component={Home} />
 					<Suspense fallback={<div>loading...</div>}>
+						<Route exact path="/" component={Home} />
 						<ItemsState>
 							<Route exact path="/characters" component={CardsContainer} />
 							<Route exact path="/comics" component={CardsContainer} />

@@ -4,13 +4,13 @@ import './style.css'
 const Pagination = ({ changePage, page }) => {
 	return (
 		<div className="pagination">
-			<button onClick={changePage} name="prev-page" aria-label="go to the previous page">
+			<button className="pagination__button" onClick={changePage} name="prev-page" aria-label="go to the previous page">
 				<i className="fas fa-arrow-left"></i>
 			</button>
-			<div className="page-number" aria-label="page number">
-				<span>{page}</span>
+			<div className="pagination__number-box" aria-label="page number">
+				<span className="pagination__number">{page}</span>
 			</div>
-			<button onClick={changePage} name="next-page" aria-label="go to the next page">
+			<button className="pagination__button" onClick={changePage} name="next-page" aria-label="go to the next page">
 				<i className="fas fa-arrow-right"></i>
 			</button>
 		</div>

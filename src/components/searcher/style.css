@@ -1,4 +1,4 @@
-fieldset.fielset-for-search {
+.searcher {
 	display: flex;
 	position: fixed;
 	padding: 10px;
@@ -11,12 +11,12 @@ fieldset.fielset-for-search {
 	z-index: 50;
 }
 
-fieldset.fielset-for-search .input-box {
+.searcher__container {
 	width: 95%;
 	overflow: hidden;
 }
 
-fieldset.fielset-for-search .complete-input-box {
+.searcher__hider {
 	transition: 0.3s;
 	display: flex;
 	flex-direction: row;
@@ -25,7 +25,7 @@ fieldset.fielset-for-search .complete-input-box {
 	width: 100%;
 }
 
-fieldset.fielset-for-search .rounded {
+.searcher-rounded-box {
 	transition: 0;
 	padding: 15px 20px;
 	border-radius: 50% 0 0 50%;
@@ -34,7 +34,7 @@ fieldset.fielset-for-search .rounded {
 	border-bottom: 1px solid rgba(163, 163, 163, 0.555);
 }
 
-fieldset.fielset-for-search input {
+.searcher__input {
 	width: 100%;
 	padding: 15px 20px;
 	border: none;
@@ -42,13 +42,13 @@ fieldset.fielset-for-search input {
 	transform: translateX(-23px);
 	border-bottom: 1px solid rgba(163, 163, 163, 0.555);
 }
-fieldset.fielset-for-search input:focus {
+.searcher__input:focus {
 	/* border: none; */
 	border-bottom: 1px solid rgba(163, 163, 163, 0.555);
 	outline: none;
 }
 
-fieldset.fielset-for-search button {
+.searcher__button {
 	position: absolute;
 	width: 56px;
 	height: 56px;
@@ -59,45 +59,23 @@ fieldset.fielset-for-search button {
 	transition: 0.3s;
 }
 
-fieldset.fielset-for-search button:hover {
+.searcher__button:hover {
 	cursor: pointer;
 	transform: scale(1.1);
 }
 
-fieldset.fielset-for-search .hide {
+.searcher__hider--hide {
 	transform: translateX(100%);
 }
 
-fieldset .characters-found {
-	display: flex;
-	position: absolute;
-	flex-direction: column;
-	transition: 0.3s;
-	align-items: flex-end;
-	padding: 15px;
-	top: 90%;
-	width: 85%;
-	max-height: 400px;
-	background-color: rgb(228, 227, 227);
-	z-index: -1;
-	border-radius:  25px;
-	overflow: scroll;
-}
-
-fieldset .characters-found::-webkit-scrollbar {
-	width: 5px;
-	height: 0;
-	border-radius: 15px;
-}
-
 @media screen and (min-width: 650px) {
-	fieldset.fielset-for-search {
+	.searcher {
 		top: 120px;
 	}
 }
 
 @media screen and (min-width: 1450px) {
-	fieldset.fielset-for-search {
+	.searcher {
 		right: 130px;
 	}
 }

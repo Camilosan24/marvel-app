@@ -1,8 +1,9 @@
 import SmallCard from '../smallCard'
+import './style.css'
 
 const ListSmallCards = ({ charactersFound, onClickCard, sectionName }) => {
    return (
-      <div className="characters-found" style={charactersFound.length !== 0 ? { height: `${charactersFound.length * 50}px` } : {display: 'none'}}>
+      <ul className="searcher__list" style={charactersFound.length !== 0 ? { height: `${charactersFound.length * 50}px` } : {display: 'none'}}>
          {charactersFound.map((cardItem) => {
             return <SmallCard
                image={cardItem.thumbnail}
@@ -11,7 +12,7 @@ const ListSmallCards = ({ charactersFound, onClickCard, sectionName }) => {
                id={cardItem.id}
                onClickCard={() => onClickCard({ id: cardItem.id, sectionName, cardItem })} />
          })}
-      </div>
+      </ul>
    )
 }
 

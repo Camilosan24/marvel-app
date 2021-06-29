@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState  } from "react";
+import { useEffect, useState } from "react";
 import { useItemsContext } from '../../hooks/useItemsContext'
 import Loading from '../../components/Loading'
 import SingleSection from '../../components/singleSection'
@@ -38,11 +38,9 @@ const Item = () => {
 
 
 	return !loading ? (
-		<section className="character">
-			<header>
-				<DetailsItem itemInfo={itemInfo} />
-			</header>
-			<main className="section-single-item">
+		<section className="item">
+			<DetailsItem itemInfo={itemInfo} />
+			<main className="item-sections-container">
 				{sectionName !== 'comics' && itemInfo.comics ? <SingleSection title="comics" items={itemInfo?.comics?.items} /> : null}
 				{itemInfo.id && chooseQuantitySeriesToSend()}
 				{sectionName !== 'events' && itemInfo.events ? <SingleSection title="events" items={itemInfo?.events?.items} /> : null}

@@ -1,16 +1,15 @@
 import React from 'react'
+import "./style.css"
 
 const SingleSection = ({ title, items }) => {
-
-
    return (
-      <section>
-         <h1>{title}</h1>
-         <ul>
-            {!items.length && items.name?
-               <li >{items.name || items.title}</li> : items?.length !== 0 ?
+      <section className="item-content">
+         <h1 className="item-content__title">{title}</h1>
+         <ul className="item-content__list">
+            {!items.length && items.name ?
+               <li className="item-content__list-item">{items.name || items.title}</li> : items?.length !== 0 ?
                   items.map((item, index) => {
-                     return <li key={index}>{item.name || item.title}</li>
+                     return <li className="item-content__list-item" key={index}>{item.name || item.title}</li>
                   }) : "No content avaible"}
          </ul>
       </section>
