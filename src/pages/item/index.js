@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import ItemsContext from '../../context/ItemsContext/ItemsContext'
+import { useEffect, useState  } from "react";
+import { useItemsContext } from '../../hooks/useItemsContext'
 import Loading from '../../components/Loading'
 import SingleSection from '../../components/singleSection'
 import DetailsItem from '../../components/detailsItem'
@@ -9,7 +9,7 @@ import "./style.css";
 
 const Item = () => {
 	const location = useLocation()
-	const itemsContext = useContext(ItemsContext)
+	const { setItemToShow, state } = useItemsContext()
 	const [itemInfo, setItemInfo] = useState({})
 	const [loading, setLoading] = useState(false)
 	const [_, sectionName, id] = location.pathname.split('/');
@@ -23,18 +23,18 @@ const Item = () => {
 	//fetch items by section
 	useEffect(() => {
 		const itemInfoExistAndExist = () => {
-			if (!itemsContext.state.tempItemToShow.id) {
-				itemsContext.setItemToShow({ id, sectionName, cardItem: null })
+			if (!state.tempItemToShow.id) {
+				setItemToShow({ id, sectionName, cardItem: null })
 				return
 			}
-			if (itemsContext.state.tempItemToShow.id) {
-				setItemInfo(itemsContext.state.tempItemToShow)
+			if (state.tempItemToShow.id) {
+				setItemInfo(state.tempItemToShow)
 				setLoading(false)
 			}
 		}
 		itemInfoExistAndExist()
 
-	}, [itemsContext.state.tempItemToShow]);
+	}, [state.tempItemToShow]);
 
 
 	return !loading ? (

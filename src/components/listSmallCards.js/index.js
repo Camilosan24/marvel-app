@@ -2,7 +2,7 @@ import SmallCard from '../smallCard'
 
 const ListSmallCards = ({ charactersFound, onClickCard, sectionName }) => {
    return (
-      <div className="characters-found" style={charactersFound.length !== 0 ? { height: `${charactersFound.length * 50}px`, paddingTop: '25px' } : {}}>
+      <div className="characters-found" style={charactersFound.length !== 0 ? { height: `${charactersFound.length * 50}px` } : {display: 'none'}}>
          {charactersFound.map((cardItem) => {
             return <SmallCard
                image={cardItem.thumbnail}

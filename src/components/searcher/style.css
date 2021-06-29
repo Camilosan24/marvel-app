@@ -74,13 +74,13 @@ fieldset .characters-found {
 	flex-direction: column;
 	transition: 0.3s;
 	align-items: flex-end;
-	padding: 10px;
-	top: 50%;
+	padding: 15px;
+	top: 90%;
 	width: 85%;
 	max-height: 400px;
 	background-color: rgb(228, 227, 227);
 	z-index: -1;
-	border-radius: 0 0 10px 25px;
+	border-radius:  25px;
 	overflow: scroll;
 }
 

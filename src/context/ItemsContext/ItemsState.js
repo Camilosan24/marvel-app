@@ -1,5 +1,5 @@
 import ItemsContext from './ItemsContext'
-import { useReducer } from 'react'
+import { useContext, useReducer } from 'react'
 import { getAllItems, getSingleItemById } from '../../requests'
 import { CHANGE_SELECTED_ITEM } from '../types'
 import itemsReducers from './ItemsReducer'
@@ -14,16 +14,11 @@ const initialState = {
 }
 
 
-
-
 export default function ItemsState({ children }) {
    const [state, dispatch] = useReducer(itemsReducers, initialState)
 
-
-
-
    //this function fetch the request page
-   const getItems = async (page, offset, route) => {
+   const setItems = async (page, offset, route) => {
       if (pageExist(state[`${route}Items`], page)) return;
       try {
          const res = await getAllItems(offset, route);
@@ -46,13 +41,14 @@ export default function ItemsState({ children }) {
             dispatch({ type: CHANGE_SELECTED_ITEM, payload: parseRes.data.results[0] })
          }
       } catch (error) {
+
       }
    }
 
    return (
       <ItemsContext.Provider value={{
          state,
-         getItems,
+         setItems,
          setItemToShow
       }}>
          {children}

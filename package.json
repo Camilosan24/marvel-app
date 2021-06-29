@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "istanbul-lib-coverage": "^3.0.0",
+    "nyc": "^15.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
@@ -14,11 +16,13 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm-run-all start-dev start-mockapi",
+    "start-dev": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "jest --coverage --watchAll",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -38,5 +42,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@cypress/code-coverage": "^3.9.7",
+    "@cypress/instrument-cra": "^1.4.0",
+    "cypress": "^7.6.0"
+  }
 }
